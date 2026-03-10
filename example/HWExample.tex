@@ -1,0 +1,143 @@
+\input{../lib/hw-setup/tex/HWSetup}
+\input{../lib/hw-setup/tex/EngBindings}
+
+%
+% Homework Details
+%   - Title
+%   - Subtitle
+%   - Due date
+%   - Due time
+%   - Course
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\hwkTitle{Title}
+\hwkSubTitle{Subtitle}
+\hwkDueDate{2025-01-01}
+\hwkDueTime{11:59:00}
+\hwkClass{Course - Section}
+\hwkClassTime{09:00:00}
+\hwkInstructor{Instuctor}
+\hwkAuthor{Author}
+\hwkCompletionDate{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{hwkProblem}{1}{Introducing Problems \textit{(\# pts.)}} \label{hwk:p01}
+
+	Homework problems are placed on individual pages.
+
+	\begin{enumerate}[label=\alph*.]
+		\item \label{hwk:p01a} Instructions
+		\item \label{hwk:p01b} Instructions
+	\end{enumerate}
+
+	\hwkSol{} \label{hwk:s01}
+
+	Solutions are placed below the problem statement, and can be split
+
+	\hwkPart{} \label{hwk:s01a}
+
+	into
+
+	\hwkPart{} \label{hwk:s01b}
+
+	different parts.
+
+\end{hwkProblem}
+
+\begin{hwkProblem}{2}{Defining Features \textit{(\# pts.)}} \label{hwk:p02}
+		
+	Problems can include \( \textbf{inline math: } F_{P} = - b \dot{x}^{2} \) and \textbf{display math:}
+
+	\[
+		\Delta E_{12} = Q_{12} + W_{12} \therefore W_{12} = Q_{12}
+	.\]
+	
+	\hwkSol{} \label{hwk:s02}
+
+	And so can solutions. Personally, I like to use \mintinline{latex}{align*} environments (though you can use \mintinline{latex}{gather*} environments) for multi-line math.
+
+	\begin{align*}
+		m_{P} \frac{d\dot{x}}{dt}                             = F_{P}                                     \\
+		m_{P} \frac{d\dot{x}}{dt}                             = -b\dot{x}^{2}                             \\
+		\frac{d\dot{x}}{\dot{x}^2}                            = - \frac{b}{m_{P}} dt                      \\
+		{\left[ - \frac{1}{\dot{x}} \right]}^{\dot{x}}_{v_{0}}  = - \frac{b}{m_{P}} \left( t - t_{0} \right) \\
+		\dot{x}                                               = \left[ v_{0}^{-1} + \frac{b}{m_{P}} \left( t - t_{0} \right) \right] \qed
+	.\end{align*}
+
+	\hwkCode{} \label{code:s02}
+
+	We can also display code blocks using \mintinline{latex}{minted} environments.
+
+	\begin{minted}{python}
+		minutes_to_convert = 122
+
+		hours = int(minutes_to_convert / 60)
+		minutes = minutes_to_convert % 60
+
+		convert_label = " Minutes "
+		if minutes_to_convert == 1:
+		    convert_label = " Minute "
+
+		hour_label = " Hours, "
+		if hours == 1:
+		    hour_label = " Hour, "
+
+		minute_label = " Minutes"
+		if minutes == 1:
+		    minute_label = " Minute"
+
+		print(
+		    str(minutes_to_convert)
+		    + convert_label
+		    + "is the same as:\n"
+		    + str(hours)
+		    + hour_label
+		    + str(minutes)
+		    + minute_label
+		)
+	\end{minted}
+
+\end{hwkProblem}
+
+\begin{hwkProblem}{3}{File insertion \textit{(\# pts.)}} \label{hwk:p03}
+
+	We can also insert files at will. As we can see here, the problem statement provides code for us.
+	\inputminted{python}{./src/p03.py}
+
+	\hwkSol{} \label{hwk:s03}
+
+	I like to use the filepath convention \mintinline{bash}{./src/pXX.py} for code used in problem statements, \mintinline{bash}{./src/sXX.py} for code used in solutions, and solution program output in \mintinline{bash}{./outputs/text/sXX.txt}. (This convention can be extended to problems with multiple parts by appending the part number to the filename:\\\mintinline{bash}{./outputs/text/{s03a.py, s03b.py, etc}}.)
+
+	\inputminted{python}{./src/s03.py}
+	\inputminted{python}{./outputs/text/s03.txt}
+
+	As you can see, our code outputs an image. I like to save them in \mintinline{bash}{./outputs/figures/sXX.png} (following the filepath naming convention we used for our code files). Let's display it here to finish off our solution. To display images, we use a combination of a \mintinline{latex}{figure} environment and a \mintinline{latex}{center} environment.
+
+	\begin{figure}[H] \label{fig:s03}
+		\begin{center}
+			\includegraphics[width=0.65\textwidth]{./outputs/figures/s03.png}
+		\end{center}
+		\caption{Data Plot}
+	\end{figure}
+
+\end{hwkProblem}
+
+\begin{hwkProblem}{Write number here}{Write name of problem here \textit{(\# pts.)}} \label{hwk:p04}
+
+	Write problem statement here.
+
+	\hwkSol{} \label{hwk:s04}
+
+	Write solution here.
+
+\end{hwkProblem}
+
+\end{document}
