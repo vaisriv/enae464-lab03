@@ -4,8 +4,6 @@
 
 \input{../lib/hw-setup/tex/HWSetup}
 \input{../lib/hw-setup/tex/EngBindings}
-\usetikzlibrary{arrows.meta, decorations.markings, patterns, calc, positioning}
-\usepackage{adjustbox}
 
 \fancyhead[L]{\textbf{I.\ Dutta,\ M.\ Kostrzewa,\ \&\ V.\ Srivastava}}
 \fancyhead[C]{}
@@ -13,12 +11,6 @@
 \fancyheadwidth[L]{0.5\headwidth}
 \fancyheadwidth[C]{0.0\headwidth}
 \fancyheadwidth[R]{0.5\headwidth}
-
-% \fancyhead[C]{}
-% \fancyhead[R]{\hyperlink{tableofcontents}{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle}}
-% \fancyheadwidth[L]{0.7\headwidth}
-% \fancyheadwidth[C]{0.0\headwidth}
-% \fancyheadwidth[R]{0.3\headwidth}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % Homework Details      %
@@ -100,43 +92,146 @@ Ishan Dutta, Mikołaj Kostrzewa, \& Vai Srivastava
 % Report                %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
+% FIXME: wip
 \section{Abstract} \label{sec:abstract}
 
-% FIXME: fill in section
+% TODO: abstract
 \lipsum[1-2]
 
+% FIXME: wip
 \section{Introduction} \label{sec:introduction}
 
-% FIXME: fill in section
+% TODO: basic theory and objectives
 \lipsum[1-2]
 
-\section{Experimental Apparatus and Procedures} \label{sec:procedures}
+% FIXME: wip
+\section{Methodology} \label{sec:methodology}
 
-\subsection{Experimental Apparatus} \label{sec:procedures/apparatus}
+% FIXME: wip
+\subsection{Experimental Apparatus} \label{sec:methodology/apparatus}
 
-% FIXME: fill in section
+% TODO: description and image of test setup
 \lipsum[1-2]
 
-\subsection{Operating Technique} \label{sec:procedures/technique}
+% FIXME: wip
+\subsection{Operating Procedure} \label{sec:methodology/procedure}
 
-% FIXME: fill in section
+% TODO: methodology/procedure
 \lipsum[1-2]
 
+% FIXME: wip
 \section{Results} \label{sec:results}
 
-\subsection{Incoming Wind Tunnel Airflow} \label{sec:results/quantities/incoming-airflow}
+\subsection{Operating Conditions} \label{sec:results/conditions}
 
-% FIXME: fill in section
+The density of air (\( \rho \)) can be calculated using the Ideal Gas Law:
+\begin{equation}
+    \rho = \frac{P}{R T}
+\end{equation}
+where:
+\begin{itemize}
+    \item \( P \) is the absolute pressure (in SI units: Pascals \unit{\Pa})
+    \item \( T \) is the absolute temperature (in Kelvin \unit{\K})
+    \item \( R \) is the specific gas constant for dry air, \( R = \qty{287.05}{\J\per\kg\per\K} \)
+\end{itemize}
+
+Given Laboratory Condition Measurements from Table \ref{tab:data/ambient-conditions}:
+\begin{align}
+    P &= \qty{1025.1}{\hecto\Pa} = \qty{102510}{\Pa} \\
+    T &= \qty{22}{\C} = 22 + 273.15 = \qty{295.15}{\K} \\
+    R &= \qty{287.05}{\J\per\kg\per\K}
+\end{align}
+
+\begin{equation}
+    \rho = \frac{\qty{102510}{\Pa}}{\qty{287.05}{\J\per\kg\per\K}} \times \qty{295.15}{\K}
+\end{equation}
+
+Calculate:
+\begin{align}
+    \rho &= \frac{102510}{287.05 \times 295.15} \\
+         &\approx \qty{1.20995}{\kg\per\m\cubed}
+\end{align}
+
+Thus, \textbf{the ambient air density during the experiment is}:
+\begin{equation}
+    \boxed{\rho = \qty{1.21}{\kg\per\m\cubed}}
+\end{equation}
+
+% FIXME: wip
+\subsection{Measurements} \label{sec:results/measurements}
+
+% TODO: table of relative pressures
+% - atmosphere (reference)
+% - inlet
+% - throat
+% - outlet
+%
+% % sample table import
+% \begin{table}[H]
+%     \centering
+%     \caption{Measured Relative Presssure, Pressure Coefficient, and Pressure vs. Angle of Attack}
+%     \mintinline{bash}{./outputs/text/pressure_vs_theta.csv} \\
+%     \begin{tabular}[c]{|r|l|c|c|c|}\hline
+%         & \( \theta \, \left[\unit{\deg}\right] \) & \( P-P_{\infty} \, \left[\unit{\Pa}\right] \) & \( C_{P} \) & \( P \, \left[\unit{\Pa}\right] \) \\ \hline \hline
+%         \csvreader[late after line = \\ \hline]{../outputs/text/pressure_vs_theta.csv}{}{
+%             {\setpadnum{2}\tt\scriptsize\padnum{\thecsvrow}} &
+%             \csvcoli &
+%             \csvcolii &
+%             \csvcoliii &
+%             \csvcoliv
+%         }
+%     \end{tabular}
+%     \label{tab:results/measurements/pressures}
+% \end{table}
+
+% FIXME: wip
+\subsection{Mass Flow Rate} \label{sec:results/mass-flow-rate}
+
+% TODO: calculation of mass flow rate from pressures
 \lipsum[1-2]
 
+% FIXME: wip
 \section{Analysis and Discussion} \label{sec:analysis}
 
-% FIXME: fill in section
+% FIXME: wip
+\subsection{Relations between Mass Flow Rate and Pressures} \label{sec:analysis/relations}
+
+% TODO: plot of \( \dot{m} \) vs. \( p_{atmos} - p_{outlet} \)
+%
+% % sample figure import
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.65\linewidth]{../outputs/figures/Cp_vs_theta.png}
+%     \caption{Pressure Coefficient \( C_{p} \) vs. Angle of Attack \( \theta \)}
+%     \label{fig:analysis/relations/Cp}
+% \end{figure}
+
+% TODO: plot of \( p_{atmos} - p_{throat} \) vs. \( p_{atmos} - p_{outlet} \)
+%
+% % sample figure import
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.65\linewidth]{../outputs/figures/Cd_vs_theta.png}
+%     \caption{Drag Coefficient \( C_{d} \) vs. Angle of Attack \( \theta \)}
+%     \label{fig:analysis/relations/Cd}
+% \end{figure}
+
+% FIXME: wip
+\subsection{Interpretation} \label{sec:analysis/interpretation}
+
+% TODO: comment on the shapes of the graphs and indicate at which point choking first occurs
 \lipsum[1-2]
 
+% FIXME: wip
+\subsection{Comparison to Theory} \label{sec:analysis/theory-comparison}
+
+% TODO: compare limiting values of experimental \( \dot{m} \) and \( \frac{p_{throat}}{p_{atm}} \) with theoretical values
+\lipsum[1-2]
+
+% FIXME: wip
 \section{Summary and Conclusions} \label{sec:summary}
 
-% FIXME: fill in section
+% TODO: summary
 \lipsum[1-2]
 
 \section{References} \label{sec:references}
@@ -147,36 +242,32 @@ Ishan Dutta, Mikołaj Kostrzewa, \& Vai Srivastava
 
 \subsection{Data} \label{sec:appendices/data}
 
-% FIXME: fix table
-% \begin{table}[H]
-%     \centering
-%     \caption{Raw Measurements of Inlet, Throat, \& Exit Pressure Taps}
-%     \mintinline{bash}{./data/pressure_taps.csv} \\
-%     \begin{tabular}[c]{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
-%         AoA \( \left(\alpha\right) \) & Channel 1 & Channel 2 & Channel 3 & Channel 4 & Channel 5 & Channel 6 & Channel 7 & Channel 8 & Channel 9 & Channel 10 & Channel 11 & Channel 12 & Channel 13 & Channel 14 & Channel 15 & Channel 16 \\ \hline \hline
-%         \csvreader[late after line = \\ \hline]{../data/pressure_taps_vs_aoa.csv}{}{
-%             \csvcoli &
-%             \csvcolii &
-%             \csvcoliii &
-%             \csvcoliv &
-%             \csvcolv &
-%             \csvcolvi &
-%             \csvcolvii &
-%             \csvcolviii &
-%             \csvcolix &
-%             \csvcolx &
-%             \csvcolxi &
-%             \csvcolxii &
-%             \csvcolxiii &
-%             \csvcolxiv &
-%             \csvcolxv &
-%             \csvcolxvi &
-%             \csvcolxvii
-%         }
-%     \end{tabular}
-%     \label{tab:data/pressure}
-% \end{table}
-% \inputminted{text}{../data/pressure_taps.csv}
+\begin{table}[H]
+    \centering
+    \caption{Ambient Laboratory Conditions during Experiment}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        Quantity                  & Value                   & Uncertainty                     \\ \hline \hline
+        Lab. Temperature, \( T \) & \qty{22}{\c}            & \(\pm \qty{0.5}{\c}\)           \\ \hline
+        Lab. Pressure, \( P \)    & \qty{1025.1}{\hecto\Pa} & \( \pm \qty{0.05}{\hecto\Pa} \) \\ \hline
+    \end{tabular}
+    \label{tab:data/ambient-conditions}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Raw Measurements of Pressure Taps}
+    \mintinline{bash}{./data/pressure_taps.csv} \\
+    \begin{tabular}[c]{|c|c|c|}\hline
+        \( P_{1} \left[\unit{\kPa}\right] \) & \( P_{2} \left[\unit{\kPa}\right] \) & \( P_{3} \left[\unit{\Pa}\right] \) \\ \hline \hline
+        \csvreader[late after line = \\ \hline]{../data/pressure_taps.csv}{}{
+            \csvcoli &
+            \csvcolii &
+            \csvcoliii
+        }
+    \end{tabular}
+    \label{tab:data/pressure-taps}
+\end{table}
 
 \subsection{Code} \label{sec:appendices/code}
 
