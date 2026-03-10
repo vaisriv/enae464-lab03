@@ -1,72 +1,196 @@
-\input{./lib/hw-setup/tex/HWSetup}
-\input{./lib/hw-setup/tex/EngBindings}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Imports and Setup     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%
-% Homework Details
-%   - Title
-%   - Subtitle
-%   - Due date
-%   - Due time
-%   - Course
-%   - Section/Time
-%   - Instructor
-%   - Author
-%
+\input{../lib/hw-setup/tex/HWSetup}
+\input{../lib/hw-setup/tex/EngBindings}
+\usetikzlibrary{arrows.meta, decorations.markings, patterns, calc, positioning}
+\usepackage{adjustbox}
 
-\hwkTitle{HW00}
-\hwkSubTitle{Homework Template}
-\hwkDueDate{2026-01-01}
-\hwkDueTime{11:59:00}
-\hwkClass{Course - Section}
-\hwkClassTime{09:00:00}
-\hwkInstructor{Instuctor}
-\hwkAuthor{Vai Srivastava}
-\hwkCompletionDate{\today}
+\fancyhead[L]{\textbf{I.\ Dutta,\ M.\ Kostrzewa,\ \&\ V.\ Srivastava}}
+\fancyhead[C]{}
+\fancyhead[R]{\hyperlink{tableofcontents}{\hmwkClass\ (\hmwkClassInstructor,\ \hmwkClassTime): \hmwkTitle}}
+\fancyheadwidth[L]{0.5\headwidth}
+\fancyheadwidth[C]{0.0\headwidth}
+\fancyheadwidth[R]{0.5\headwidth}
+
+% \fancyhead[C]{}
+% \fancyhead[R]{\hyperlink{tableofcontents}{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle}}
+% \fancyheadwidth[L]{0.7\headwidth}
+% \fancyheadwidth[C]{0.0\headwidth}
+% \fancyheadwidth[R]{0.3\headwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Homework Details      %
+% - Title               %
+% - Subtitle            %
+% - Due Date            %
+% - Due Time            %
+% - Course              %
+% - Section Time        %
+% - Instructor          %
+% - Author              %
+% - Submission Time     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hwkTitle{Lab03}
+\hwkSubTitle{Choking in Convergent-Divergent Duct}
+\hwkDueDate{2026-03-13}
+\hwkDueTime{23:59:00}
+\hwkClass{ENAE464 - 0202}
+\hwkClassTime{14:00:00}
+\hwkInstructor{Dr. Silbaugh}
+\hwkAuthor{Ishan Dutta, Mikołaj Kostrzewa, \& Vai Srivastava}
+\hwkCompletionDate{
+        Experiment Performed: \DTMdate{2026-03-06}\\
+        Report Submitted: \DTMtoday
+}
+
+\addbibresource{./references.bib}
 
 \begin{document}
 
-\maketitle
+\hypertarget{titlepage}{\maketitle}
+\thispagestyle{empty}
 
 \pagebreak
 
-\begin{hwkProblem}{1}{Parts \textit{(\# pts.)}} \label{hwk:p01}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Letter of Transmittal %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{enumerate}[label=\alph*.]
-		\item \label{hwk:p01a} Instructions
-		\item \label{hwk:p01b} Instructions
-	\end{enumerate}
+\thispagestyle{empty}
 
-	\hwkSol{} \label{hwk:s01}
+\DTMtoday
 
-	\hwkPart{} \label{hwk:s01a}
+\vspace{5.0ex}
 
-	Answer
+Enclosed is the technical report for the \textit{Choking in Convergent-Divergent Duct} laboratory experiment. This report presents the experimental methodology, results, and analysis of mass flow rate for subsonic \& supersonic flow within a convergent-divergent duct.
 
-	\hwkPart{} \label{hwk:s01b}
+Please feel free to contact us with any questions regarding the contents of this report.
 
-	Answer
+\vspace{5.0ex}
 
-\end{hwkProblem}
+Respectfully,
 
-\begin{hwkProblem}{2}{Code \textit{(\# pts.)}} \label{hwk:p02}
+Ishan Dutta, Mikołaj Kostrzewa, \& Vai Srivastava
 
-	Instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\hwkSol{} \label{hwk:s02}
+\pagebreak
 
-	\begin{figure}[H] \label{fig:s02}
-		\begin{center}
-			\includegraphics[width=0.95\textwidth]{./outputs/figures/s02.png}
-		\end{center}
-		\caption{Example}
-	\end{figure}
+\thispagestyle{empty}
+\hypertarget{tableofcontents}{\tableofcontents}
 
-	\inputminted{python}{./outputs/text/s02.txt}
+\renewcommand{\listfigurename}{Figures}
+\listoffigures
 
-	\hwkCode{} \label{code:s02}
+\renewcommand{\listtablename}{Tables}
+\listoftables
 
-	See the \href{https://www.github.com/vaisriv/hw-template/blob/main/src/index.py#L10}{Python code} for this problem.
+\renewcommand{\listlistingname}{Listings}
+\listoflistings
 
-\end{hwkProblem}
+\newpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Report                %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Abstract} \label{sec:abstract}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{Introduction} \label{sec:introduction}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{Experimental Apparatus and Procedures} \label{sec:procedures}
+
+\subsection{Experimental Apparatus} \label{sec:procedures/apparatus}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\subsection{Operating Technique} \label{sec:procedures/technique}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{Results} \label{sec:results}
+
+\subsection{Incoming Wind Tunnel Airflow} \label{sec:results/quantities/incoming-airflow}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{Analysis and Discussion} \label{sec:analysis}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{Summary and Conclusions} \label{sec:summary}
+
+% FIXME: fill in section
+\lipsum[1-2]
+
+\section{References} \label{sec:references}
+
+\printbibliography[heading=none]
+
+\section{Appendices} \label{sec:appendices}
+
+\subsection{Data} \label{sec:appendices/data}
+
+% FIXME: fix table
+% \begin{table}[H]
+%     \centering
+%     \caption{Raw Measurements of Inlet, Throat, \& Exit Pressure Taps}
+%     \mintinline{bash}{./data/pressure_taps.csv} \\
+%     \begin{tabular}[c]{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+%         AoA \( \left(\alpha\right) \) & Channel 1 & Channel 2 & Channel 3 & Channel 4 & Channel 5 & Channel 6 & Channel 7 & Channel 8 & Channel 9 & Channel 10 & Channel 11 & Channel 12 & Channel 13 & Channel 14 & Channel 15 & Channel 16 \\ \hline \hline
+%         \csvreader[late after line = \\ \hline]{../data/pressure_taps_vs_aoa.csv}{}{
+%             \csvcoli &
+%             \csvcolii &
+%             \csvcoliii &
+%             \csvcoliv &
+%             \csvcolv &
+%             \csvcolvi &
+%             \csvcolvii &
+%             \csvcolviii &
+%             \csvcolix &
+%             \csvcolx &
+%             \csvcolxi &
+%             \csvcolxii &
+%             \csvcolxiii &
+%             \csvcolxiv &
+%             \csvcolxv &
+%             \csvcolxvi &
+%             \csvcolxvii
+%         }
+%     \end{tabular}
+%     \label{tab:data/pressure}
+% \end{table}
+% \inputminted{text}{../data/pressure_taps.csv}
+
+\subsection{Code} \label{sec:appendices/code}
+
+For the sake of brevity, only the code files that are key to the analysis are included below. However, in the spirit of completeness, the repository containing the complete data, source code, and notes for this report can be found at \href{https://www.github.com/vaisriv/enae464-lab03}{github:vaisriv/enae464-lab03}.
+
+\begin{codeblock}
+    \centering
+    \caption{Index File}
+    \mintinline{bash}{./src/index.py}
+    \inputminted{python}{../src/index.py}
+    \label{lst:code/index}
+\end{codeblock}
+
+% render all references
+\nocite{*}
 
 \end{document}
