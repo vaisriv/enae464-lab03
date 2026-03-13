@@ -92,34 +92,82 @@ Ishan Dutta, Mikołaj Kostrzewa, \& Vai Srivastava
 % Report                %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-% FIXME: wip
 \section{Abstract} \label{sec:abstract}
 
-% TODO: abstract
-\lipsum[1-2]
+This report presents an experimental investigation of choked flow in a convergent-divergent duct using the Armfield C1-MkII Compressible Flow Bench. Air was drawn through the duct by a variable-speed compressor, and three pressure taps at the inlet, throat, and outlet were monitored as the outlet pressure was progressively reduced. The mass flow rate \( \dot{m} \) and throat pressure ratio \( p_\text{throat}/p_\text{atmos} \) were computed at each operating point and compared against isentropic flow theory. The results clearly demonstrate the onset of choking at an outlet pressure drop of approximately \qty{8}{\kPa} to \qty{9}{\kPa}, beyond which \( \dot{m} \) plateaus at \qty{16.76}{\g\per\s}. This experimentally observed maximum agrees with the theoretical prediction of \qty{17.09}{\g\per\s} to within \( 2\% \). The limiting throat pressure ratio of \( 0.481 \) falls \( 8.9\% \) below the theoretical critical value of \( r_c = 0.528 \), a discrepancy attributed to viscous losses and boundary layer effects not captured by the inviscid isentropic model.
 
-% FIXME: wip
 \section{Introduction} \label{sec:introduction}
 
-% TODO: basic theory and objectives
-\lipsum[1-2]
+The phenomenon of \textit{choking} describes a condition in compressible duct flow where the mass flow rate reaches a maximum and can no longer increase, regardless of further reductions in downstream pressure. This experiment investigates choking in a convergent-divergent duct using the Armfield C1-MkII Compressible Flow Bench, with the objective of demonstrating the onset of choking and comparing experimental results to isentropic flow theory.
 
-% FIXME: wip
+\subsection{Theoretical Background} \label{sec:introduction/theory}
+
+For frictionless, adiabatic (isentropic) flow of an ideal gas with no shaft work, the energy equation reduces to:
+\begin{equation}
+    \frac{\gamma}{\gamma - 1} \frac{p}{\rho} + \frac{V^2}{2} = \text{constant}
+    \label{eq:energy}
+\end{equation}
+where \( \gamma = c_p / c_v \) is the ratio of specific heats (\( \gamma = 1.4 \) for air), \( p \) is the static pressure, \( \rho \) is the density, and \( V \) is the flow velocity. Applying Equation \ref{eq:energy} between the atmosphere and the throat, and using the isentropic relation \( p / \rho^\gamma = \text{const} \), the mass flow rate through the throat can be expressed as:
+\begin{equation}
+    \dot{m} = \rho_\text{atmos} \, a_\text{throat} \sqrt{\frac{2\gamma}{\gamma-1}
+    \frac{p_\text{atmos}}{\rho_\text{atmos}} \left[ r^{2/\gamma} - r^{(\gamma+1)/\gamma} \right]}
+    \label{eq:mdot}
+\end{equation}
+where \( a_\text{throat} \) is the throat cross-sectional area and \( r = p_\text{throat} / p_\text{atmos} \) is the ratio of throat pressure to atmospheric pressure.
+
+Inspection of Equation \ref{eq:mdot} shows that \( \dot{m} = 0 \) at both \( r = 0 \) and \( r = 1 \), implying a maximum exists for some critical value \( r_c \). Setting \( d\dot{m}/dr = 0 \) yields:
+\begin{equation}
+    r_c = \left( \frac{2}{\gamma + 1} \right)^{\gamma / (\gamma - 1)}
+    \label{eq:rc}
+\end{equation}
+which evaluates to \( r_c \approx 0.528 \) for air. At this critical pressure ratio, the flow velocity at the throat equals the local speed of sound, i.e.\ the throat Mach number reaches unity (\( M_\text{throat} = 1 \)).
+
+Once \( M_\text{throat} = 1 \), pressure disturbances originating downstream can no longer propagate upstream through the throat, since they travel at the speed of sound. Consequently, further reductions in the outlet pressure \( p_\text{outlet} \) have no effect on the throat conditions: \( p_\text{throat} \) remains fixed at \( r_c \cdot p_\text{atmos} \), and \( \dot{m} \) remains at its maximum value. This condition is referred to as \textit{choked flow}.
+
+\subsection{Objectives} \label{sec:introduction/objectives}
+
+The specific objectives of this experiment are:
+\begin{enumerate}
+    \item To measure the mass flow rate \( \dot{m} \) through the convergent-divergent duct as the outlet pressure is progressively reduced, and to identify the point at which choking first occurs.
+    \item To observe the behaviour of the throat pressure \( p_\text{throat} \) relative to \( p_\text{atmos} \) before and after choking.
+    \item To compare the experimentally obtained limiting values of \( \dot{m} \) and \( p_\text{throat} / p_\text{atmos} \) against the theoretical predictions of isentropic flow theory, particularly the critical pressure ratio \( r_c \approx 0.528 \).
+\end{enumerate}
+
 \section{Methodology} \label{sec:methodology}
 
-% FIXME: wip
 \subsection{Experimental Apparatus} \label{sec:methodology/apparatus}
 
-% TODO: description and image of test setup
-\lipsum[1-2]
+The experiment was conducted using the Armfield C1-MKII Compressible Flow Unit, shown in Figure \ref{fig:procedures/apparatus/converging-diverging-duct}. The apparatus consists of two primary components: a variable-speed motor-driven compressor, and a convergent-divergent nozzle test section fabricated from clear acrylic.
 
-% FIXME: wip
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{../assets/converging-diverging-duct.jpg}
+    \caption{Converging-Diverging Duct Test Seciton on the C1-MkII Compressible Flow Bench}
+    \label{fig:procedures/apparatus/converging-diverging-duct}
+\end{figure}
+
+The convergent-divergent duct features three instrumented cross-sections: the inlet, the throat, and the outlet, with diameters \( d_1 = d_3 = \qty{24}{\mm} \) and \( d_2 = \qty{9.5}{\mm} \) respectively. The compressor draws air through the duct from right to left (inlet to outlet), generating a controlled low-pressure region downstream. Three pressure taps connect the duct to a digital control console, which displays the following gauge pressure differences relative to atmospheric pressure:
+\begin{itemize}
+    \item \( P_1 = p_\text{atmos} - p_\text{throat} \) \hfill [\unit{\kPa}]
+    \item \( P_2 = p_\text{atmos} - p_\text{outlet} \) \hfill [\unit{\kPa}]
+    \item \( P_3 = p_\text{atmos} - p_\text{inlet}  \) \hfill [\unit{\Pa}]
+\end{itemize}
+Ambient laboratory temperature and pressure were measured prior to the experiment using a thermometer and barometer, and are recorded in Table \ref{tab:data/ambient-conditions}.
+
 \subsection{Operating Procedure} \label{sec:methodology/procedure}
 
-% TODO: methodology/procedure
-\lipsum[1-2]
+Prior to starting the compressor, the ambient temperature and barometric pressure of the laboratory were recorded. The atmospheric air density \( \rho_\text{atmos} \) was then calculated from these values using the ideal gas law, as detailed in Section \ref{sec:results/conditions}.
 
-% FIXME: wip
+The compressor speed was increased from rest until the outlet pressure drop \( P_2 \) reached \qty{2}{\kPa}. At this initial setting, the console readings for \( P_1 \), \( P_2 \), and \( P_3 \) were recorded simultaneously. The compressor speed was then increased in successive steps, each targeting a \qty{1}{\kPa} increment in \( P_2 \), with sensor readings recorded at each step. This process was continued until the maximum compressor speed was reached.
+
+At each operating point, the mass flow rate \( \dot{m} \) was calculated from \( P_3 \) and the ambient conditions using the isentropic inlet flow equation:
+\begin{equation}
+    \dot{m} = a_\text{inlet} \sqrt{2 \rho_\text{atmos} \left( p_\text{atmos} - p_\text{inlet} \right)}
+            = a_\text{inlet} \sqrt{2 \rho_\text{atmos} \cdot P_3}
+    \label{eq:mdot-inlet}
+\end{equation}
+where \( a_\text{inlet} = \pi d_1^2 / 4 \) is the inlet cross-sectional area. Upon completion of data collection, the compressor speed was reduced to zero and the equipment was switched off.
+
 \section{Results} \label{sec:results}
 
 \subsection{Operating Conditions} \label{sec:results/conditions}
@@ -157,82 +205,131 @@ Thus, \textbf{the ambient air density during the experiment is}:
     \boxed{\rho = \qty{1.21}{\kg\per\m\cubed}}
 \end{equation}
 
-% FIXME: wip
 \subsection{Measurements} \label{sec:results/measurements}
 
-% TODO: table of relative pressures
-% - atmosphere (reference)
-% - inlet
-% - throat
-% - outlet
-%
-% % sample table import
-% \begin{table}[H]
-%     \centering
-%     \caption{Measured Relative Presssure, Pressure Coefficient, and Pressure vs. Angle of Attack}
-%     \mintinline{bash}{./outputs/text/pressure_vs_theta.csv} \\
-%     \begin{tabular}[c]{|r|l|c|c|c|}\hline
-%         & \( \theta \, \left[\unit{\deg}\right] \) & \( P-P_{\infty} \, \left[\unit{\Pa}\right] \) & \( C_{P} \) & \( P \, \left[\unit{\Pa}\right] \) \\ \hline \hline
-%         \csvreader[late after line = \\ \hline]{../outputs/text/pressure_vs_theta.csv}{}{
-%             {\setpadnum{2}\tt\scriptsize\padnum{\thecsvrow}} &
-%             \csvcoli &
-%             \csvcolii &
-%             \csvcoliii &
-%             \csvcoliv
-%         }
-%     \end{tabular}
-%     \label{tab:results/measurements/pressures}
-% \end{table}
+Table \ref{tab:data/pressure-taps} records the raw gauge pressure readings from the three console displays at each compressor speed setting. \( P_1 \) and \( P_2 \) are given in \unit{\kPa} and \( P_3 \) in \unit{\Pa}, reflecting the differing magnitudes of the pressure drops at the throat, outlet, and inlet respectively. The absolute pressures are given below for completeness.
 
-% FIXME: wip
+\begin{table}[H]
+    \centering
+    \caption{Derived Absolute Presssures}
+    \mintinline{bash}{./outputs/text/pressures.csv} \\
+    \begin{tabular}[c]{|r|c|c|c|c|c|}\hline
+        & \( p_{\text{atmos}} \left[\unit{\Pa}\right] \) & \( p_{\text{inlet}} \left[\unit{\Pa}\right] \) & \( p_{\text{throat}} \left[\unit{\Pa}\right] \) & \( p_{\text{outlet}} \left[\unit{\Pa}\right] \) & \( p_\text{throat}/p_\text{atmos} \left[-\right] \) \\ \hline \hline
+        \csvreader[late after line = \\ \hline]{../outputs/text/pressures.csv}{}{
+            {\setpadnum{2}\tt\scriptsize\padnum{\thecsvrow}} &
+            \csvcoli &
+            \csvcolii &
+            \csvcoliii &
+            \csvcoliv &
+            \csvcolv
+        }
+    \end{tabular}
+    \label{tab:results/measurements/pressures}
+\end{table}
+
 \subsection{Mass Flow Rate} \label{sec:results/mass-flow-rate}
 
-% TODO: calculation of mass flow rate from pressures
-\lipsum[1-2]
+The mass flow rate at each operating point was computed from the inlet gauge pressure \( P_3 = p_\text{atmos} - p_\text{inlet} \) using the isentropic inlet flow equation (Equation \ref{eq:mdot-inlet}):
+\begin{equation}
+    \dot{m} = a_\text{inlet} \sqrt{2 \rho_\text{atmos} \cdot P_3}
+\end{equation}
+where the inlet cross-sectional area is:
+\begin{equation}
+    a_\text{inlet} = \frac{\pi d_1^2}{4}
+                   = \frac{\pi \left(\qty{0.024}{\m}\right)^2}{4}
+                   \approx \qty{4.524e-4}{\m\squared}
+\end{equation}
+and \( \rho_\text{atmos} \approx \qty{1.210}{\kg\per\m\cubed} \) from Section \ref{sec:results/conditions}. The resulting mass flow rates, together with the derived absolute pressures at each operating point, are tabulated in Table \ref{tab:results/mass-flow-vs-pressures} and plotted in Figures \ref{fig:analysis/relations/mdot-vs-dp-outlet} and \ref{fig:analysis/relations/dp-throat-vs-dp-outlet}.
 
-% FIXME: wip
+\begin{table}[H]
+    \centering
+    \caption{Derived Pressures and Mass Flow Rate at Each Operating Point}
+    \mintinline{bash}{./outputs/text/mass_flow_vs_pressures.csv} \\
+    \begin{tabular}[c]{|r|c|c|c|c|c|}\hline
+            & \( p_\text{atmos} - p_\text{outlet} \) \( \left[\unit{\kPa}\right] \)
+            & \( p_\text{atmos} - p_\text{throat} \) \( \left[\unit{\kPa}\right] \)
+            & \( p_\text{atmos} - p_\text{inlet} \) \( \left[\unit{\Pa}\right] \)
+            & \( p_\text{throat} / p_\text{atmos} \) \( \left[-\right] \)
+            & \( \dot{m} \) \( \left[\unit{\g\per\s}\right] \) \\ \hline \hline
+        \csvreader[late after line = \\ \hline]{../outputs/text/mass_flow_vs_pressures.csv}{}{
+            {\setpadnum{2}\tt\scriptsize\padnum{\thecsvrow}} &
+            \pgfmathprintnumber[fixed, precision=1]{\csvcoli} &
+            \pgfmathprintnumber[fixed, precision=1]{\csvcolii} &
+            \pgfmathprintnumber[fixed, precision=1]{\csvcoliii} &
+            \pgfmathprintnumber[fixed, precision=3]{\csvcoliv} &
+            \pgfmathparse{\csvcolv * 1000}
+            \pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}
+        }
+    \end{tabular}
+    \label{tab:results/mass-flow-vs-pressures}
+\end{table}
+
 \section{Analysis and Discussion} \label{sec:analysis}
 
-% FIXME: wip
 \subsection{Relations between Mass Flow Rate and Pressures} \label{sec:analysis/relations}
 
-% TODO: plot of \( \dot{m} \) vs. \( p_{atmos} - p_{outlet} \)
-%
-% % sample figure import
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.65\linewidth]{../outputs/figures/Cp_vs_theta.png}
-%     \caption{Pressure Coefficient \( C_{p} \) vs. Angle of Attack \( \theta \)}
-%     \label{fig:analysis/relations/Cp}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{../outputs/figures/mdot_vs_dp_outlet.png}
+    \caption{Mass Flow Rate \( \dot{m} \) vs. Outlet Pressure Drop \( p_{\text{atmos}} - p_{\text{outlet}} \)}
+    \label{fig:analysis/relations/mdot-vs-dp-outlet}
+\end{figure}
 
-% TODO: plot of \( p_{atmos} - p_{throat} \) vs. \( p_{atmos} - p_{outlet} \)
-%
-% % sample figure import
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.65\linewidth]{../outputs/figures/Cd_vs_theta.png}
-%     \caption{Drag Coefficient \( C_{d} \) vs. Angle of Attack \( \theta \)}
-%     \label{fig:analysis/relations/Cd}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{../outputs/figures/dp_throat_vs_dp_outlet.png}
+    \caption{Throat Pressure Drop \( p_{\text{atmos}} - p_{\text{throat}} \) vs. Outlet Pressure Drop \( p_{\text{atmos}} - p_{\text{outlet}} \)}
+    \label{fig:analysis/relations/dp-throat-vs-dp-outlet}
+\end{figure}
 
-% FIXME: wip
 \subsection{Interpretation} \label{sec:analysis/interpretation}
 
-% TODO: comment on the shapes of the graphs and indicate at which point choking first occurs
-\lipsum[1-2]
+Figure \ref{fig:analysis/relations/mdot-vs-dp-outlet} shows \( \dot{m} \) rising steeply as the outlet pressure drop \( p_\text{atmos} - p_\text{outlet} \) is first increased from \qty{2}{\kPa}, reflecting the expected isentropic behaviour in the pre-choked regime: a larger pressure differential across the duct drives a higher flow velocity and, consequently, a greater mass flow rate. However, the rate of increase diminishes markedly beyond \( p_\text{atmos} - p_\text{outlet} \approx \qty{6}{\kPa} \), and \( \dot{m} \) becomes essentially constant at approximately \qty{16.76}{\g\per\s} for outlet pressure drops of \qty{7}{\kPa} and above. This plateau is the defining signature of choked flow.
 
-% FIXME: wip
+Figure \ref{fig:analysis/relations/dp-throat-vs-dp-outlet} corroborates this interpretation. In the pre-choked regime, the throat pressure drop \( p_\text{atmos} - p_\text{throat} \) rises continuously as the outlet pressure is reduced, indicating that pressure disturbances from downstream are still being communicated upstream through the throat. The curve begins to flatten noticeably between \( p_\text{atmos} - p_\text{outlet} = \qty{8}{\kPa} \) and \qty{9}{\kPa}, at which point the measured pressure ratio \( p_\text{throat}/p_\text{atmos} \) crosses the theoretical critical value of \( r_c = 0.528 \) (from \( 0.546 \) at \qty{8}{\kPa} to \( 0.512 \) at \qty{9}{\kPa}). This crossing marks the onset of choking: the throat Mach number reaches unity, and the throat pressure becomes decoupled from further reductions in \( p_\text{outlet} \). Accordingly, \textbf{choking first occurs at approximately \( p_\text{atmos} - p_\text{outlet} \approx \qty{8}{\kPa} \) to \qty{9}{\kPa}}.
+
 \subsection{Comparison to Theory} \label{sec:analysis/theory-comparison}
 
-% TODO: compare limiting values of experimental \( \dot{m} \) and \( \frac{p_{throat}}{p_{atm}} \) with theoretical values
-\lipsum[1-2]
+Table \ref{tab:analysis/theory-comparison} summarises the comparison between the experimentally obtained limiting values and the isentropic theoretical predictions.
 
-% FIXME: wip
+\begin{table}[H]
+    \centering
+    \caption{Comparison of Experimental and Theoretical Limiting Values}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        Quantity
+            & Experimental
+            & Theoretical
+            & Relative Error \\ \hline \hline
+        \( \dot{m}_\text{max} \) [\unit{\g\per\s}]
+            & \( 16.757 \)
+            & \( 17.093 \)
+            & \( 1.97\% \) \\ \hline
+        \( p_\text{throat} / p_\text{atmos} \) at choking
+            & \( 0.481 \)
+            & \( 0.528 \)
+            & \( 8.90\% \) \\ \hline
+    \end{tabular}
+    \label{tab:analysis/theory-comparison}
+\end{table}
+
+The experimental \( \dot{m}_\text{max} \) agrees closely with theory, with a relative error of under \( 2\% \). This small discrepancy is consistent with the assumptions of the isentropic model: in practice, viscous boundary layers and minor frictional losses in the duct reduce the effective flow capacity marginally below the inviscid prediction.
+
+The limiting throat pressure ratio shows a larger deviation of approximately \( 8.9\% \), with the experimental value of \( 0.481 \) falling below the theoretical \( r_c = 0.528 \). This is also physically consistent with real-flow effects: friction and boundary layer growth in the convergent section act to reduce the effective throat area, requiring a lower throat pressure (i.e.\ a higher pressure drop) to drive the flow to Mach 1 compared to the frictionless ideal. Additionally, the discrete \qty{1}{\kPa} step resolution of the compressor speed control means the exact choking point cannot be pinpointed with greater precision than the interval between consecutive readings.
+
 \section{Summary and Conclusions} \label{sec:summary}
 
-% TODO: summary
-\lipsum[1-2]
+This experiment investigated the phenomenon of choked flow in a convergent-divergent duct by measuring the inlet, throat, and outlet pressures across a range of compressor speeds. The key findings are as follows:
+
+\begin{enumerate}
+    \item \textbf{Choking was clearly observed.} The mass flow rate \( \dot{m} \) increased steadily with outlet pressure drop up to approximately \qty{7}{\kPa}, beyond which it plateaued at a constant value of \qty{16.76}{\g\per\s}, consistent with the theoretical prediction that \( \dot{m} \) reaches a maximum when \( M_\text{throat} = 1 \). The onset of choking was identified between outlet pressure drops of \qty{8}{\kPa} and \qty{9}{\kPa}, where the throat pressure ratio \( p_\text{throat}/p_\text{atmos} \) crossed the critical value \( r_c \).
+
+    \item \textbf{The experimental \( \dot{m}_\text{max} \) agrees closely with theory.} The measured limiting mass flow rate of \qty{16.76}{\g\per\s} falls within \( 2\% \) of the isentropic prediction of \qty{17.09}{\g\per\s}, confirming that the isentropic model is a good approximation for this flow configuration despite the simplifying assumptions of frictionless, adiabatic flow.
+
+    \item \textbf{The limiting throat pressure ratio deviates more notably from theory.} The experimental value of \( p_\text{throat}/p_\text{atmos} = 0.481 \) lies \( 8.9\% \) below the theoretical \( r_c = 0.528 \). This is attributed to viscous and boundary layer effects in the convergent section, which reduce the effective throat area and require a greater pressure drop to accelerate the flow to sonic conditions, as well as the \qty{1}{\kPa} resolution limit of the pressure measurements.
+\end{enumerate}
+
+Overall, the experiment successfully demonstrated the choking phenomenon and validated the core predictions of isentropic compressible flow theory. The close agreement in \( \dot{m} \) and the physically interpretable discrepancy in \( r \) together support the use of the isentropic model as a practical first-order tool for analysing convergent-divergent duct flows, with the understanding that real-flow corrections may be necessary for higher-fidelity predictions.
 
 \section{References} \label{sec:references}
 
